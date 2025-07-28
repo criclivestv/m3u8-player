@@ -1,46 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M3U8 / HLS Player</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-  <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>M3U8 Stream Player</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-900 text-white font-sans">
-  <nav class="bg-gray-800 p-4 shadow">
-    <div class="container mx-auto flex justify-between items-center">
-      <a class="text-2xl font-bold text-blue-400 hover:text-white" href="#">M3U8 Stream Tester</a>
-    </div>
-  </nav>
 
-  <main class="container mx-auto px-4 flex flex-col items-center mt-10">
-    <div class="w-full max-w-xl mb-6">
-      <div class="flex rounded-md shadow overflow-hidden">
-        <input id="m3u8-url" type="text" placeholder="Paste your stream URL..." oninput="generateEmbedUrl()" class="w-full px-4 py-2 bg-gray-700 text-white focus:outline-none" />
-        <button onclick="playVideo()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white font-semibold">▶ Play</button>
-      </div>
-    </div>
-
-    <div class="w-full max-w-4xl h-64 bg-black mb-6" id="videoPlayer">Enter a stream URL and press Play</div>
-
-    <div class="w-full max-w-xl mb-6">
-      <div class="flex rounded-md shadow overflow-hidden">
-        <input id="embed-url" type="text" readonly class="w-full px-4 py-2 bg-gray-700 text-white" placeholder="Embed URL will appear here" />
-        <button onclick="copyLink()" class="bg-green-600 hover:bg-green-700 px-4 py-2 text-white font-semibold">📋 Copy</button>
-      </div>
+    <div class="container mx-auto px-4 py-6 text-center max-w-2xl">
+        <h1 class="text-3xl font-bold text-blue-400 mb-4">M3U8 / HLS / DASH Stream Tester</h1>
+        
+        <input id="stream-url" type="text" placeholder="Enter M3U8 / DASH URL" class="w-full mb-3 px-4 py-2 rounded bg-gray-800 text-white focus:outline-none" oninput="generateEmbedUrl()" />
+        <input id="vast-url" type="text" placeholder="Enter VAST Ad Tag URL (optional)" class="w-full mb-3 px-4 py-2 rounded bg-gray-800 text-white focus:outline-none" />
+        
+        <button onclick="playVideo()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-6">â–¶ Preview</button>
+        
+        <div id="videoPlayer" class="w-full aspect-video bg-black mb-6 text-gray-400 flex items-center justify-center">
+            Enter a stream URL and press Preview
+        </div>
+        
+        <div class="flex rounded shadow overflow-hidden">
+            <input id="embed-url" readonly class="w-full px-4 py-2 bg-gray-800 text-white" placeholder="Embed URL will appear here" />
+            <button onclick="copyLink()" class="bg-green-600 hover:bg-green-700 px-4 py-2 text-white font-semibold">ðŸ“‹ Copy</button>
+        </div>
     </div>
 
-    <div class="w-full max-w-xl mb-4">
-      <input id="vast-url" type="text" placeholder="Optional: Enter VAST Ad Tag URL..." class="w-full px-4 py-2 bg-gray-700 text-white focus:outline-none" />
-    </div>
-  </main>
-
-  <footer class="bg-gray-800 mt-12 text-center py-6 text-gray-400">
-    &copy; 2025 criclivestv.com
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
